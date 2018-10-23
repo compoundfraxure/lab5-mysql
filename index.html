@@ -1,12 +1,27 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Multiplication Table</title>
+		<title>Bullet Boards</title>
 	</head>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
 	<body>
-		<h1>Create a Username</h1>
-		<form>
-			
-		</form>
+		<h1>Bullet Boards</h1>
+		<p>Bullet Boards - a message board written so simply in PHP that experienced PHP developers will want to put a bullet through their brains.</p>
+		<table>
+			<tr>
+				<th><a href="CreateUser.html">Create User</a></th>
+				<th><a href="CreatePosts.html">Create Post</a></th>
+				<th><a href="AdminHome.html">Administration</a></th>
+			</tr>
+			<tr>
+				<td>Create a username for yourself - mostly just so we know who to blame when people inevitably start posting Mike Trout slashfics.</td>
+				<td>Write out anything you'd like, just so long as you don't do something silly like try to inject SQL code into the post and delete all the posts. Who would even think that's a good idea?</td>
+				<td>For administrators only - if you're a regular user, do not click (please).</td>
+			</tr>
+		</table>
 	</body>
 </html>
