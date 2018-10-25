@@ -15,7 +15,7 @@
 		$query = "SELECT user_id FROM Users WHERE user_id='" . $username . "';";
 		if ($checkQuery = $mysqli->query($query)) {
 
-	        if ($checkQuery->num_rows === 0) {
+	        if ($checkQuery->num_rows <= 0) {
 				$query = "INSERT INTO Users VALUES ('" . $username . "');";
 				if ($insertQuery = $mysqli->query($query)) {
 					echo "Successfully added username " . $username . " to the database.<br>";

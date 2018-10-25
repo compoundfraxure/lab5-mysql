@@ -16,7 +16,7 @@
 	if ($content !== "") {
 		$query = "SELECT user_id FROM Users WHERE user_id='" . $username . "';";
 		if ($checkQuery = $mysqli->query($query)) {
-			if ($checkQuery->num_rows !== 0) {
+			if ($checkQuery->num_rows > 0) {
 				$query = "INSERT INTO Posts (content, author_id) VALUES ('" . $content . "', '" . $username . "');";
 				if ($insertQuery = $mysqli->query($query)) {
 					echo "Successfully submitted post.<br>";
