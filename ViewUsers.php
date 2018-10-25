@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Bullet Boards</title>
+		<title>List of Users</title>
 	</head>
 	<style>
 		table, th, td {
@@ -40,12 +40,8 @@
 	else {
 		echo "Error: " . $query . "<br>" . $mysqli->error . "<br>";
 	}
-
-
-
-	echo "";
+	
 	$mysqli->close();
 ?>
-		<a href='AdminHome.html'><button type='button'>Go Back</button></a>
 	</body>
 </html>
