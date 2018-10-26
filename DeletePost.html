@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Delete a Post</title>
+	</head>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
+	<body>
+		<h1>Delete a Post</h1>
+		<form id="delete" action="DeletePost.php" method="post">
+
+			<?php
+				error_reporting(E_ALL);
+				ini_set("display_errors", 1);
+
+				$mysqli = new mysqli("mysql.eecs.ku.edu", "w553p157", "eab3mae9", "w553p157");
+				if ($mysqli->connect_errno) {
+				    printf("Connect failed: %s\n", $mysqli->connect_error);
+				    exit();
+				}
+
+				$query = "SELECT * FROM Posts ORDER BY post_id;";
+				if ($checkQuery = $mysqli->query($query)) {
+					if ($checkQuery->num_rows > 0) {
+						echo "<table width='100%'>\n<th>Post ID</th>\n<th>User ID</th>\n<th>Post</th>\n<th>Delete?</th>\n";
+						while ($row = $checkQuery->fetch_assoc()) {
+							echo "<tr><td style='text-align: center'>" . $row["post_id"] . "</td>\n<td style='text-align: center'>" . $row["author_id"] . "</td>\n<td>" . nl2br($row["content"]) . "</td>\n";
+							echo "<td style='text-align: center'><input form='delete' type='checkbox' name='postToDelete[]' value='" . $row["post_id"] . "'></td></tr>\n";
+						}
+						echo "</table><br /><br />\n<input type='submit' value='Mod Hammer'>";
+					}
+					else {
+						echo "No posts found.<br /><br /><input type='submit' value='Mod Hammer' disabled>";
+					}
+
+					/* free result set */
+					$checkQuery->free();
+				}
+				else {
+					echo "</select>Error: " . $query . "<br>" . $mysqli->error . "<br>";
+				}
+
+				$mysqli->close();
+			?>
+		</form>
+	</body>
+</html>

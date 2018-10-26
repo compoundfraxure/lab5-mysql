@@ -21,7 +21,7 @@
 	    exit();
 	}
 
-	$query = "SELECT * FROM Users";
+	$query = "SELECT * FROM Users ORDER BY user_id;";
 	if ($checkQuery = $mysqli->query($query)) {
 		if ($checkQuery->num_rows > 0) {
 			echo "<table>";
@@ -40,7 +40,7 @@
 	else {
 		echo "Error: " . $query . "<br>" . $mysqli->error . "<br>";
 	}
-	
+
 	$mysqli->close();
 ?>
 	</body>

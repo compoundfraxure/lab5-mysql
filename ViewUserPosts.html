@@ -23,7 +23,7 @@
 	    exit();
 	}
 
-	$query = "SELECT * FROM Users";
+	$query = "SELECT * FROM Users;";
 	if ($checkQuery = $mysqli->query($query)) {
 		if ($checkQuery->num_rows > 0) {
 			while ($row = $checkQuery->fetch_assoc()) {
